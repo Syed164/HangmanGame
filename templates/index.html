@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&family=Playwrite+HR:wght@100..400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Hangman Game</h1>
+    <div id="game-container">
+        {% if not game_active %}
+            <button id="start-button" onclick="document.forms['start-form'].submit();">Start Game</button>
+            <form id="start-form" action="/start_game" method="post" style="display: none;"></form>
+        {% else %}
+            <p id="clue">Clue: {{ game_data['clue'] }}</p>
+            <pre id="hangman-stage">{{ game_data['stages'] }}</pre>
+            <p id="display-word">{{ game_data['display']|join(' ') }}</p>
+            <p id="message">{{ game_data['message'] }}</p>
+            {% if 'YOU WIN!' not in game_data['message'] and 'GAME OVER!' not in game_data['message'] %}
+                <form id="guess-form" action="/guess" method="post">
+                    <input type="hidden" name="chosen_word" value="{{ game_data['chosen_word'] }}">
+                    <input type="hidden" name="clue" value="{{ game_data['clue'] }}">
+                    <input type="hidden" name="display" value="{{ game_data['display']|join('') }}">
+                    <input type="hidden" name="lives_left" value="{{ game_data['lives_left'] }}">
+                    <div id="guess-bar">
+                        <input type="text" name="guess" maxlength="1" required>
+                        <button type="submit">Guess</button>
+                    </div>
+                </form>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

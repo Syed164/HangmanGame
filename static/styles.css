@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #e3d4d4;
+    font-family: "Playwrite CU", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 48px;
+    margin-top: 60px;
+}
+
+
+#game-container {
+    background: white;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+#clue {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+pre {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#display-word {
+    font-size: 1.5em;
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+}
+
+#message {
+    font-size: 1.2em;
+    color: #f00;
+    margin-bottom: 20px;
+}
+
+#guess-bar {
+    margin-top: 20px;
+}
+
+#guess-bar input {
+    font-size: 1.2em;
+    padding: 5px;
+    width: 30px;
+    text-align: center;
+}
+
+#guess-bar button, #play-again-button {
+    font-size: 1.2em;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#play-again-button {
+    background-color: #4CAF50;
+    color: rgb(148, 36, 192);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#play-again-button:hover {
+    background-color: #45a049;
+}
